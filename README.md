@@ -71,8 +71,8 @@ Detailed error traces
 - [x] Customizable Templates
 
 Planned Features
-- [ ]PDF/CSV Export
-- [ ]LMS Integration
+- [ ] PDF/CSV Export
+- [ ] LMS Integration
 - [ ] Code Similarity Detection
 - [ ] AI-Powered Feedback
 
