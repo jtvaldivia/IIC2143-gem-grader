@@ -1,43 +1,119 @@
-# Iic2143Reporter
+# IIC2143Reporter
 
-TODO: Delete this and the text below, and describe your gem
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Gem Version](https://badge.fury.io/rb/iic2143_reporter.svg)](https://badge.fury.io/rb/iic2143_reporter)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/iic2143_reporter`. To experiment with that code, run `bin/console` for an interactive prompt.
+
+A Ruby gem for generating academic test reports in HTML format. Initially designed for automated grading of university programming assignments, with flexibility to adapt to different testing frameworks.
+
+**Current Status**: Early Development (Beta)  
+**Primary Use**: Automated evaluation of academic coding tasks  
+**Future Goal**: Modular system for diverse testing scenarios
+
+---
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
-Install the gem and add to the application's Gemfile by executing:
+### Local Development
+Add to your Rails Gemfile:
+```ruby
+gem 'iic2143_reporter', path: '/path/to/gem/directory'
+```
+Then run:
 
 ```bash
-bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+bundle install
 ```
-
-If bundler is not being used to manage dependencies, install the gem by executing:
+From RubyGems (Once Published)
+```bash
+gem install iic2143_reporter
+```
+## Basic Usage
+Configure in your test helper:
 
 ```bash
-gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+ test/test_helper.rb
 ```
+```ruby
+require 'iic2143_reporter'
 
-## Usage
+Minitest.after_run do
+  IIC2143Reporter::Reporter.new(
+    total_score,      # Calculated score
+    max_score,        # Maximum possible score
+    failed_tests,     # Array of failed test names
+    automated_feedback # Generated feedback summary
+  ).generate
+end
+```
+Report will be generated at:
 
-TODO: Write usage instructions here
+```bash
+public/test_report.html
+```
+## Evaluated Data:
+```bash
+Test results (pass/fail)
 
-## Development
+Score calculations
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Execution metadata
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Custom feedback
 
+Detailed error traces
+```
+## Development Current Features
+
+- [x] HTML Report Generation
+- [x] Academic Grading System
+- [x] Detailed Error Analysis
+- [x] Customizable Templates
+
+Planned Features
+- [ ]PDF/CSV Export
+- [ ]LMS Integration
+- [ ] Code Similarity Detection
+- [ ] AI-Powered Feedback
+
+## Academic Configuration
+```ruby
+IIC2143Reporter.configure do |config|
+  config.grading_scale = { 
+    passing: 4.0,
+    excellence: 5.5
+  }
+  config.rubric = {
+    code_quality: 30%,
+    coverage: 20%,
+    functionality: 50%
+  }
+end
+```
+## Architecture
+```bash
+lib/
+├── iic2143_reporter/
+│   ├── reporter.rb         # Core logic
+│   ├── grader.rb           # Grading system
+│   └── template.html.erb   # HTML template
+├── iic2143_reporter.rb     # Main module
+```
 ## Contributing
+We welcome contributions for:
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/iic2143_reporter. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/iic2143_reporter/blob/master/CODE_OF_CONDUCT.md).
+New report formats
+
+Additional framework support
+
+Code analysis improvements
+
+AI integration modules
+
 
 ## License
+MIT License - See LICENSE. Requires attribution in academic materials using this software.
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+Educational assessment tool - Adaptable for diverse pedagogical needs.
 
-## Code of Conduct
-
-Everyone interacting in the Iic2143Reporter project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/iic2143_reporter/blob/master/CODE_OF_CONDUCT.md).
+**Note**: This project is in very early stage and could have major bugs
