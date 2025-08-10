@@ -1,5 +1,11 @@
 # IIC2143Reporter
 
+> Important: This gem is DEPRECATED and has been replaced by 'ruby_test_student_grader'.
+> Reason: the new name is clearer and ongoing development happens there.
+>
+> Recommended: gem install ruby_test_student_grader
+> Learn more: [ruby_test_student_grader on RubyGems](https://rubygems.org/gems/ruby_test_student_grader)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Gem Version](https://badge.fury.io/rb/iic2143_reporter.svg)](https://badge.fury.io/rb/iic2143_reporter)
 
