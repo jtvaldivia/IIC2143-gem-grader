@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name = "iic2143_reporter"
   spec.version = Iic2143Reporter::VERSION
   spec.authors = ["jtvaldivia"]
-  spec.email = ["jvaldivia@buk.cl"]
+  spec.email = ["josevaldivia9@gmail.com"]
 
   spec.summary = "Generador de reportes HTML para tests IIC2143"
   spec.description = "Gem for creation of HTML reports of grades tester  fow now in IIC2143"
